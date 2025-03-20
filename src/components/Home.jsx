@@ -6,7 +6,8 @@ import { containerVariants } from './Variants'
 import { yVariants } from './Variants'
 import { textVariants } from './Variants'
 import { Numbers } from './Numbers'
-import UniformCarousel from './UniformCarousel'
+import InfiniteCarousel from './InfiniteCarousel'
+
 
 const imgs=[
   "/imgs/bh_1.webp",
@@ -23,7 +24,7 @@ export default function Home() {
   return (
     <div className='bg-gray-50 pt-36'>
       <motion.p className='p-20 font-extrabold text-center text-6xl bg-logo_blue'
-        variants={yVariants}
+        variants={containerVariants}
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true }}
@@ -77,7 +78,7 @@ export default function Home() {
         <Reviews />
       </div> */}
       <div className='py-10'>
-        <UniformCarousel images={imgs} />
+        <InfiniteCarousel images={imgs}/>
       </div>
       <motion.div className='grid grid-cols-1 md:grid-cols-3 p-20 bg-dark_blue gap-5'
         variants={containerVariants}
