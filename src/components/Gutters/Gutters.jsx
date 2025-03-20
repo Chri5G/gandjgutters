@@ -4,7 +4,7 @@ import { FiDollarSign, FiEye, FiPlay, FiSearch } from "react-icons/fi";
 
 const Gutters = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-gray-50">
       <SwapColumnFeatures />
     </div>
   );

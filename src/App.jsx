@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Header from './components/Header';
-import Home from './components/Intro';
+import Home from './components/Home';
 import Gutters from './components/Gutters/Gutters';
 import Residential from './components/Gutters/Residential';
 import Commercial from './components/Gutters/Commercial';
