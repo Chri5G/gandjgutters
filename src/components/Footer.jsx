@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="text-center md:text-left">
           <div className="w-36 h-36 mx-auto md:mx-0">
@@ -62,29 +62,38 @@ const Footer = () => {
               <a href="/about">
                 About Us
               </a>
-              <a href="/services">
-                Services
-              </a>
               <a href="/contact">
                 Contact
               </a>
             </div>
           </div>
 
-          {/* Signs */}
+          {/* Gutters */}
           <div>
-            <h4 className="text-xl font-semibold mb-6 text-white">Services</h4>
+            <h4 className="text-xl font-semibold mb-6 text-white">Gutters</h4>
             <div className="flex flex-col gap-3">
-              <a href="/services/installation">
-                Gutter Installation
+              <a href="/gutters">
+                Gutters 101
               </a>
-              <a href="/services/cover">
-                Gutter Cover
+              <a href="/gutters/residential">
+                Residential
               </a>
-              <a href="/services/cleaning">
-                Gutter Cleaning
+              <a href="/gutters/commercial">
+                Commercial
               </a>
             </div>
+          </div>
+          {/* Roofing */}
+          <div>
+          <h4 className="text-xl font-semibold mb-6 text-white">Roofing</h4>
+          <div className="flex flex-col gap-3">
+            <a href="/roofing">
+              Roofing 101
+            </a>
+            <a href="/roofing/metal_roofs">
+              Metal Roofs
+            </a>
+          </div>
           </div>
         </div>
         {/* Copyright */}

@@ -5,7 +5,13 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}', // This ensures Tailwind scans your source files
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        logo_blue: '#74cbfa',
+        dark_blue: "#055b95",
+        background: "#d3d3d3"
+      },
+    },
   },
   plugins: [],
 }

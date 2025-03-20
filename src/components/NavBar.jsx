@@ -1,181 +1,272 @@
-/* eslint-disable react/prop-types */
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
-import { FiMenu, FiArrowRight } from "react-icons/fi";
-import { FaArrowRight } from "react-icons/fa6";
-import { Link, useLocation } from "react-router-dom";
+import React, { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { FiMenu } from "react-icons/fi";
+import { FaCircleChevronRight } from "react-icons/fa6";
+import { href } from "react-router-dom";
 
-const FlipNav = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const { scrollY } = useScroll();
-  const location = useLocation(); // Get the current route
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 850 ? true : false);
-  });
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const scrollNavbar = ["/", "/about", "/projects"]
+export const NavBar = () => {
   return (
-    <nav
-      className={`fixed top-0 z-50 w-full px-6 
-      transition-all duration-300 ease-out lg:px-12 flex
-      ${
-        !scrollNavbar.includes(location.pathname) || scrolled
-          ? "bg-gray-900 py-3 shadow-xl"
-          : "bg-neutral-950/0 py-6 shadow-none"
-      }`}
-    >
-      <Logo />
-      <NavLeft setIsOpen={setIsOpen} />
-      <NavRight />
-      <NavMenu isOpen={isOpen} />
-    </nav>
-  );
-};
-
-const Logo = () => {
-  return (    
-    <div className="flex w-20 h-20 items-center">
-      <a href='/'>
-        <img src="/imgs/logo.webp" className="w-full h-full object-cover" alt="Logo" />
-      </a>
-    </div>
-  );
-};
-
-// Toogle mobile menu button
-const NavLeft = ({ setIsOpen }) => {
-  return (
-    <div className="flex felx-end items-center gap-6">
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="block lg:hidden text-white text-2xl bg-blue-500"
-        onClick={() => setIsOpen((pv) => !pv)}
+    <div className="bg-gray-900">
+      <RoundedDrawerNav
+        links={[
+          {
+            title: "Gutters",
+            sublinks: [
+              {
+                title: "Gutters 101",
+                href: "/gutters",
+              },
+              {
+                title: "Residential",
+                href: "/gutters/residential",
+              },
+              {
+                title: "Commercial",
+                href: "/gutters/commercial",
+              },
+            ],
+          },
+          {
+            title: "Roofing",
+            sublinks: [
+              {
+                title: "Roofing 101",
+                href: "/roofing",
+              },
+              {
+                title: "Metal Roofs",
+                href: "/roofing/metal_roofs",
+              },
+            ],
+          },
+          {
+            title: "About Us",
+            href: "/about_us",
+          },
+        ]}
+        navBackground="bg-gray-900"
+        bodyBackground="bg-white"
       >
-        <FiMenu />
-      </motion.button>
-      <NavLink to='/about' text="About Us" />
-      <NavLink to ='/services' text="Services" />
-      <NavLink to ='/projects' text="Projects" />
-      <NavLink to='/contact' text="Contact" />  
+      </RoundedDrawerNav>
     </div>
   );
 };
 
-// Navbar Links
-const NavLink = ({ to, text }) => {
+const RoundedDrawerNav = ({
+  children,
+  navBackground,
+  bodyBackground,
+  links,
+}) => {
+  const [hovered, setHovered] = useState(null);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  const activeSublinks = useMemo(() => {
+    if (!hovered) return [];
+    const link = links.find((l) => l.title === hovered);
+
+    return link ? link.sublinks : [];
+  }, [hovered]);
+
   return (
-    <a
-      href={`${to}`}
-      rel="nofollow"
-      className="hidden lg:block h-[30px] overflow-hidden font-medium"
-    >
-      <motion.div whileHover={{ y: -30, text }}>
-        <span className="flex items-center h-[30px] text-white">{text}</span>
-        <span className="flex items-center h-[30px] text-blue-500 text-xl">
-          {text}
-        </span>
-      </motion.div>
+    <>
+      <nav
+        onMouseLeave={() => setHovered(null)}
+        className={`${navBackground} p-2 fixed top-0 left-0 right-0 z-50`} // Position fixed, top-0, and z-index for visibility
+      >
+        <div className="flex items-start justify-between">
+          <div className="flex items-start">
+            <Logo />
+            <DesktopLinks
+              links={links}
+              setHovered={setHovered}
+              hovered={hovered}
+              activeSublinks={activeSublinks}
+            />
+          </div>
+          
+          {/* Free Estimate Button */}
+          <motion.button className="mt-4 hidden rounded-md bg-dark_blue px-3 py-1.5 text-neutral-50 md:block"
+            whileTap={{ scale: 0.9}}
+            whileHover={{ scale: [1.1, 1, 1.1], 
+              transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }  
+            }}
+          >
+            <a href="/contact" className="font-bold flex items-center hover:text-neutral-50">
+              Free Estimate
+              <FaCircleChevronRight className="ml-1" />
+            </a>
+          </motion.button>
+
+          {/* Mobile Menu Sandwhich */}
+          <motion.button
+            onClick={() => setMobileNavOpen((pv) => !pv)}
+            className="bg-dark_blue mt-1.5 block text-2xl text-neutral-50 md:hidden"
+            whileTap={{ scale: 0.9}}
+          >
+            <FiMenu />
+          </motion.button>
+        </div>
+        <MobileLinks links={links} open={mobileNavOpen} />
+      </nav>
+      <motion.main layout className={`${navBackground} px-2 pb-2`}>
+        <div className={`${bodyBackground} rounded-3xl`}>{children}</div>
+      </motion.main>
+    </>
+  );
+};
+
+// Company Logo
+const Logo = () => {
+  return (
+    <a href="/">
+      <img src="/imgs/logo.webp" className="w-24 h-16"></img>
     </a>
   );
 };
 
-// Free Quote Button
-const NavRight = () => {
+// Pop Up Hover Links
+const DesktopLinks = ({ links, setHovered, hovered, activeSublinks }) => {
+  const handleMouseEnter = (title) => {
+    // Only setHovered when it's not "About Us"
+    if (title === "About Us") {
+      setHovered(null);
+    } else {
+      setHovered(title);
+    }
+  };
+
   return (
-    <div className="flex ml-auto items-center">
-      <a href="/contact">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md whitespace-nowrap flex items-center gap-2"
-        >
-          Free Quote
-          <FaArrowRight />
-        </motion.button>
-      </a>
+    <div className="ml-9 mt-0.5 hidden md:block">
+      <div className="flex gap-6">
+        {links.map((l) => (
+          <TopLink 
+            key={l.title} 
+            setHovered={setHovered} 
+            title={l.title}
+            hasSublinks={!!l.sublinks}
+            href={l.href}
+            handleMouseEnter={handleMouseEnter}  // Pass the handler to TopLink
+          >
+            {l.title}
+          </TopLink>
+        ))}
+      </div>
+      <AnimatePresence mode="popLayout">
+        {hovered && (
+          <motion.div
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            className="space-y-4 py-6"
+          >
+            {activeSublinks.map((l) => (
+              <a
+                className="block text-2xl font-semibold text-neutral-50 transition-colors hover:text-dark_blue"
+                href={l.href}
+                key={l.title}
+              >
+                {l.title}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
-const NavMenu = ({ isOpen }) => {
+const MobileLinks = ({ links, open }) => {
   return (
-    <motion.div
-      variants={menuVariants}
-      initial="closed"
-      animate={isOpen ? "open" : "closed"}
-      className="absolute p-4 bg-neutral-950 bg-opacity-50  shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4 lg:hidden"
-    >
-      <MenuLink to='/about' text="About Us" />
-      <MenuLink to='/services' text="Services" />
-      <MenuLink to ='/projects' text="Projects" />
-      <MenuLink to='/contact' text="Contact" />
-    </motion.div>
+    <AnimatePresence mode="popLayout">
+      {open && (
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+          className="grid grid-cols-2 gap-6 py-6 md:hidden"
+        >
+          {/* Mobile Menu Dropdown */}
+          {links.map((l) => {
+            return (
+              <div key={l.title} className="space-y-1.5">
+                {l.sublinks ? (
+                  <>
+                    <span className="text-md block font-semibold text-neutral-50">
+                      {l.title}
+                    </span>
+                    {l.sublinks.map((sl) => (
+                      <a
+                        className="text-md block text-neutral-300"
+                        href={sl.href}
+                        key={sl.title}
+                      >
+                        {sl.title}
+                      </a>
+                    ))}
+                  </>
+                ) : (
+                  <a
+                    href={l.href}
+                    className="text-md block font-semibold text-neutral-50"
+                  >
+                    {l.title}
+                  </a>
+                )}
+              </div>
+            );
+          })}
+          <div>
+          </div>
+          <div>
+            <motion.button className="rounded-md bg-dark_blue px-3 py-1.5 text-neutral-50 transition-colors hover:bg-dark_blue"
+              whileTap={{ scale: 0.9}}
+              whileHover={{ scale: [1.1, 1, 1.1], 
+                transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }  
+              }}
+            >
+              <a href="/contact" className="font-bold flex items-center hover:text-neutral-50">
+                Free Estimate
+                <FaCircleChevronRight className="ml-1" />
+              </a>
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
-// Mobile Drop Down Links
-const MenuLink = ({ to, text }) => {
-  return (
-    <motion.a
-      variants={menuLinkVariants}
-      rel="nofollow"
-      href={`${to}`}
-      className="h-[30px] overflow-hidden font-medium text-xl flex items-start gap-2"
-    >
-      <motion.span variants={menuLinkArrowVariants}>
-        <FiArrowRight className="h-[30px] text-white" />
-      </motion.span>
-      <motion.div 
-        whileHover={{ y: -30 }}
+// Top Hover Links 
+const TopLink = ({ children, setHovered, title, hasSublinks, href, handleMouseEnter}) => (
+  <>
+    {hasSublinks ? (
+      <span
+        onMouseEnter={() => handleMouseEnter(title)}  // Use the new handler
+        className="mt-5 cursor-pointer text-neutral-50 text-lg transition-colors hover:text-dark_blue"
       >
-        <span className="flex items-center h-[30px] text-white">{text}</span>
-        <span className="flex items-center h-[30px] text-blue-500">
-          {text}
-        </span>
-      </motion.div>
-    </motion.a>
-  );
-};
-
-export default FlipNav;
-
-const menuVariants = {
-  open: {
-    scaleY: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.1,
-    },
-  },
-  closed: {
-    scaleY: 0,
-    transition: {
-      when: "afterChildren",
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const menuLinkVariants = {
-  open: {
-    y: 0,
-    opacity: 1,
-  },
-  closed: {
-    y: -10,
-    opacity: 0,
-  },
-};
-
-const menuLinkArrowVariants = {
-  open: {
-    x: 0,
-  },
-  closed: {
-    x: -4,
-  },
-};
+        {children}
+      </span>
+    ) : (
+      <a
+        href={href}
+        onMouseEnter={() => handleMouseEnter(title)}  // Use the new handler
+        className="mt-5 cursor-pointer block text-neutral-50 text-lg transition-colors hover:text-dark_blue"
+      >
+        {children}
+      </a>
+    )}
+  </>
+);
