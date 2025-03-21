@@ -66,9 +66,9 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 py-10">
+    <div className="pt-24 min-h-screen flex flex-col items-center justify-center bg-gray-50">
       <motion.h1
-        className="text-4xl font-bold text-center text-gray-800 mb-8"
+        className="text-4xl font-bold text-center text-gray-800"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

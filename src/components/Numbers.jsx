@@ -23,16 +23,16 @@ export const Numbers = () => {
         />
         <div className="h-[1px] w-12 sm:h-12 sm:w-[1px]" />
         <Stat
-          num={60}
+          num={500}
           suffix="K+"
-          subheading="Feet of Gutters Installed"
+          subheading="Over 500K Feet of Gutters Installed"
         />
-        <div className="h-[1px] w-12 sm:h-12 sm:w-[1px]" />
+        {/* <div className="h-[1px] w-12 sm:h-12 sm:w-[1px]" />
         <Stat
           num={25}
           suffix="K+"
           subheading="Over 25K Signs Installed"
-        />
+        /> */}
       </motion.div>
     </motion.div>
   );

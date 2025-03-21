@@ -24,6 +24,10 @@ export const NavBar = () => {
                 title: "Commercial",
                 href: "/gutters/commercial",
               },
+              {
+                title: "Covers",
+                href: "/gutters/covers",
+              },
             ],
           },
           {
@@ -90,7 +94,7 @@ const RoundedDrawerNav = ({
           </div>
           
           {/* Free Estimate Button */}
-          <motion.button className="mt-4 hidden rounded-md bg-dark_blue px-3 py-1.5 text-neutral-50 md:block"
+          <motion.button className="mt-4 rounded-md bg-dark_blue px-3 py-1.5 text-neutral-50 block"
             whileTap={{ scale: 0.9}}
             whileHover={{ scale: [1.1, 1, 1.1], 
               transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }  
@@ -241,7 +245,7 @@ const MobileLinks = ({ links, open }) => {
                 transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }  
               }}
             >
-              <a href="/contact" className="font-bold flex items-center hover:text-neutral-50">
+              <a href="/free_estimate" className="font-bold flex items-center hover:text-neutral-50">
                 Free Estimate
                 <FaCircleChevronRight className="ml-1" />
               </a>

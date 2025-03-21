@@ -9,7 +9,8 @@ module.exports = {
       colors: {
         logo_blue: '#74cbfa',
         dark_blue: "#055b95",
-        background: "#d3d3d3"
+        facebook: '#3b5999',
+        instagram: '#e4405f',
       },
     },
   },

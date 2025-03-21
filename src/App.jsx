@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Gutters from './components/Gutters/Gutters';
 import Residential from './components/Gutters/Residential';
 import Commercial from './components/Gutters/Commercial';
+import Covers from './components/Gutters/Covers';
 import Roofing from './components/Roofing/Roofing';
 import Metal from './components/Roofing/Metal';
 import About from './components/About';
@@ -23,6 +24,7 @@ function App() {
         <Route path='/gutters' element={<Gutters />} />
         <Route path='/gutters/residential' element={<Residential />} />
         <Route path='/gutters/commercial' element={<Commercial />} />
+        <Route path='/gutters/covers' element={<Covers />} />
         <Route path='/roofing' element={<Roofing />} />
         <Route path='/roofing/metal' element={<Metal />} />
         <Route path='/about' element={<About />} />

@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { FaStar } from "react-icons/fa";
 
 const Roofing = () => {
   return (
@@ -123,45 +124,51 @@ const features = [
   {
     id: 1,
     callout: "What",
-    title: "What are Gutters?",
-    description:"Gutters are systems of channels installed along the edges of your roof to collect rainwater and direct it away from your home. They prevent water from damaging your roof, siding, foundation, and landscaping by safely guiding it to a designated drainage area.",
+    title: "What is Roofing?",
+    description:"Roofing is the installation of the top covering of a building that protects it from weather like rain, wind, and sun. It includes layers such as decking, underlayment, flashing, and the outer material—like shingles or metal. A roof helps safeguard the structure, improve energy efficiency, and enhance curb appeal.",
     contentPosition: "r",
-    img: '/imgs/logo.webp',
+    img: '/imgs/roofing/1.webp',
   },
   {
     id: 2,
-    callout: "Why",
-    title: "Why are Gutters Important",
+    callout: "New Roof?",
+    title: "Signs You Need a New Roof",
     description:
-    <p><strong className="text-logo_blue">Water Control:</strong> Gutters protect your home from water damage by directing rainwater away from critical areas like your foundation and roof.<br /><strong className="text-logo_blue">Foundation Protection:</strong> Gutters prevent water from pooling around your home’s foundation, which can lead to cracks, leaks, or flooding.<br /><strong className="text-logo_blue">Prevent Erosion:</strong> Without gutters, water can erode the soil around your home, affecting the landscape and even leading to uneven ground or washouts.</p>,
+    <ul>
+      <li><FaStar className="inline mr-2 text-yellow-400"/> Missing, curling, or cracked shingles.</li>
+      <li><FaStar className="inline mr-2 text-yellow-400"/> Water stains on ceilings or attic leaks.</li>
+      <li><FaStar className="inline mr-2 text-yellow-400"/> Excessive granules in gutters (for asphalt roofs).</li>
+      <li><FaStar className="inline mr-2 text-yellow-400"/> Sagging areas or structural dips.</li>
+      <li><FaStar className="inline mr-2 text-yellow-400"/> Roof age: 20+ years old (depending on material).</li>
+    </ul>,
     contentPosition: "l",
-    img: '/imgs/logo.webp',
+    img: '/imgs/roofing/2.jpeg',
   },
   {
     id: 3,
-    callout: "Sizes",
-    title: "Gutter Sizing",
-    description:
-    <p>Proper gutter sizing is essential to ensure that the gutters can handle the volume of water during heavy rain. The size of gutters is typically determined by the roof's square footage and the rainfall in your area.<br /><strong className="text-logo_blue">5-inch gutters:</strong> Ideal for standard homes with average rainfall.<br /><strong className="text-logo_blue">6-inch gutters:</strong> Recommended for larger homes or areas with heavy rainfall, as they can handle more water flow.</p>,
+    callout: "Install",
+    title: "Roofing Installation Process",
+    description:"Roof Installation begins by tearing off the old roofing and inspecting the decking for damage. After making necessary repairs, contractors install underlayment and flashing. The new roofing material is then applied, followed by ridge caps and proper ventilation. The project wraps up with a thorough cleanup to leave your property spotless.",
     contentPosition: "r",
-    img: '/imgs/gutter_sizes.jpg',
+    img: '/imgs/roofing/3.jpg',
   },
+
   {
     id: 4,
-    callout: "Types",
-    title: "Types of Gutters",
-    description:
-    <p>We offer a variety of gutter options, including <strong className="text-logo_blue">Custom Half-Round Gutters</strong> for a classic, rounded look, and <strong className="text-logo_blue">Custom Box Gutters</strong> for a more modern, sleek design, all tailored to fit your home's unique style and needs.</p>,
-    contentPosition: "l",
-    img: '/imgs/gutter_types.avif',
-  },
-  {
-    id: 5,
     callout: "Who",
     title: "Let Professionals Install Your Gutters",
     description:
     <p>At <strong className="text-logo_blue">G&J Seamless Gutters</strong>, we are the experts in gutter installation. Let our professional team handle all your gutter needs. <a href="/contact" className="text-logo_blue hover:underline">Contact Us</a> now for a seamless experience!"</p>,
-    contentPosition: "r",
+    contentPosition: "l",
     img: '/imgs/logo.webp',
+  },
+  {
+    id: 5,
+    callout: "Maintenance",
+    title: "Roofing Maintenance Tips",
+    description:
+    <p>Maintain your roof by cleaning gutters regularly and checking for damage after storms. Trim trees to prevent branches from scraping the roof. Inspect flashing and sealants around chimneys and vents for wear. For long-term protection, schedule professional roof inspections every year or two.</p>,
+    contentPosition: "r",
+    img: '/imgs/roofing/4.jpeg',
   },
 ];

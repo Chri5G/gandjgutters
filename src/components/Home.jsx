@@ -71,23 +71,27 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center h-full'
-            variants={textVariants}
-          >
-            Gutter Installation
-          </motion.p>
+          <a href='/gutters' target='_blank'>
+            <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center h-full'
+              variants={textVariants}
+            >
+              Gutter Installation
+            </motion.p>
+          </a>
         </motion.div>
-        <motion.div className='col-span-1 bg-dark_blue rounded-lg'
-          variants={yVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center pt-3 h-full'
-            variants={textVariants}
+          <motion.div className='col-span-1 bg-dark_blue rounded-lg'
+            variants={yVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
           >
-            Gutter Cover
-          </motion.p>
-        </motion.div>
+            <a href='/gutters/covers' target='_blank'>
+              <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center pt-3 h-full'
+                variants={textVariants}
+              >
+                Gutter Cover
+              </motion.p>
+            </a>
+          </motion.div>
         <motion.div className='col-span-1 bg-dark_blue rounded-lg'
           variants={yVariants}
           whileHover={{ scale: 1.05 }}
@@ -104,11 +108,13 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <motion.p className='flex items-center justify-center h-full text-gray-50 text-3xl font-extrabold text-center pt-3'
-            variants={textVariants}
-          >
-            Roofing
-          </motion.p>
+          <a href='/roofing' target='_blank'>
+            <motion.p className='flex items-center justify-center h-full text-gray-50 text-3xl font-extrabold text-center pt-3'
+              variants={textVariants}
+            >
+              Roofing
+            </motion.p>
+          </a>
         </motion.div>
       </motion.div>
       {/* <div className='py-20'>
