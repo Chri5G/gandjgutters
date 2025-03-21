@@ -1,10 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Reviews from './Reviews'
-import { cardVariants } from './Variants'
-import { containerVariants } from './Variants'
-import { yVariants } from './Variants'
-import { textVariants } from './Variants'
+import { textVariants, yVariants, yDownVariants, containerVariants,appearVariants } from './Variants'
 import { Numbers } from './Numbers'
 import InfiniteCarousel from './InfiniteCarousel'
 
@@ -22,65 +19,108 @@ const imgs=[
 
 export default function Home() {
   return (
-    <div className='bg-gray-50 pt-36'>
-      <motion.p className='p-20 font-extrabold text-center text-6xl bg-logo_blue'
+    <div className='bg-gray-50 pt-[72px]'>
+      <motion.div
+        variants={yDownVariants}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true }}
+      >
+        <div className='grid grid-cols-1 md:grid-cols-2'>
+          <div className='h-[65vh] bg-inherit'
+            style={{ backgroundImage: `url(/imgs/home/working_1.webp)`,
+              backgroundPosition: 'center',  // Center the image
+              backgroundSize: 'cover',       // Ensure it covers the div 
+              backgroundRepeat: 'no-repeat',  // No repeat
+            }}
+          >
+          </div>
+          <div className='h-[65vh] bg-inherit'
+            style={{ backgroundImage: `url(/imgs/home/roofing.jpeg)`,
+              backgroundPosition: 'center',  // Center the image
+              backgroundSize: 'cover',       // Ensure it covers the div 
+              backgroundRepeat: 'no-repeat'  // No repeat
+            }}
+          >
+          </div>
+        </div>
+      </motion.div>
+      <motion.div
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true }}
       >
-        Central Texas Experts in <span className='text-dark_blue'>Roofing</span> & <span className='text-dark_blue'>Rain Gutter</span> Installation
-      </motion.p>
-      <motion.div className='p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-gray-50 gap-10'
+        <motion.p className='p-5 font-extrabold text-center text-8xl bg-logo_blue'
+          variants={appearVariants}
+        >
+          Central Texas Experts in <span className='text-dark_blue'><br />Roofing</span> & <span className='text-dark_blue'>Rain Gutter</span> Installation
+        </motion.p>
+      </motion.div>
+      <div className='pt-20 font-extrabold text-6xl text-center'>
+        <p className='pb-3'>Our Gutter and Roofing Services</p>
+      </div>
+      <motion.div className='p-10 grid grid-cols-1 lg:grid-cols-4 bg-gray-50 gap-5 h-[50vh]'
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true }}
       >
-        <motion.div className='col-span-1 p-10 bg-dark_blue rounded-lg'
+        <motion.div className='col-span-1 bg-dark_blue rounded-lg'
           variants={yVariants}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <p className='bold text-3xl pb-3'>Why G&J</p>
-          <hr className='w-1/2'/>
-          <motion.p className='pt-3'
-            variants={textVariants}
-          >For over 20 years, G&J Seamless Gutters has helped homeowners and businesses across Central Texas protect their properties from costly water damage. We specialize in seamless gutter systems designed to withstand the elements while improving the look and functionality of your roofline, all backed by expert installation and trusted service.</motion.p>
-        </motion.div>
-        <motion.div className='col-span-1 p-10 bg-dark_blue rounded-lg'
-          variants={yVariants}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <p className='bold text-3xl pb-3'>Why Rain Gutters</p>
-          <hr className='w-1/2'/>
-          <motion.p className='pt-3'
+          <motion.p className='flex items-center justify-center text-gray-50 text-4xl font-extrabold text-center h-full'
             variants={textVariants}
           >
-            Rain gutters protect your property by redirecting water away from your foundation, roof, and landscaping. They prevent erosion, cracks, and water damage, while also reducing the risk of basement flooding. Seamless gutters enhance curb appeal and increase property value, making them a smart investment for any Central Texas home or business.
+            Gutter Installation
           </motion.p>
         </motion.div>
-        <motion.div className='col-span-1 p-10 bg-dark_blue rounded-lg'
+        <motion.div className='col-span-1 bg-dark_blue rounded-lg'
           variants={yVariants}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <p className='bold text-3xl pb-3'>What are Seamless Rain Gutters</p>
-          <hr className='w-1/2'/>
-          <motion.p className='pt-3'
+          <motion.p className='flex items-center justify-center text-gray-50 text-4xl font-extrabold text-center pt-3 h-full'
             variants={textVariants}
-          >Seamless rain gutters are the best choice for protecting your home from water damage. Without seams, they’re less likely to leak or clog, ensuring smooth water flow away from your foundation. They require less maintenance, last longer, and enhance your home’s curb appeal, making them a smart, long-term investment.</motion.p>
-
+          >
+            Gutter Cover
+          </motion.p>
+        </motion.div>
+        <motion.div className='col-span-1 bg-dark_blue rounded-lg'
+          variants={yVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <motion.p className='flex items-center justify-center text-gray-50 text-4xl font-extrabold text-center pt-3 h-full'
+            variants={textVariants}
+          >
+            Gutter Cleaning
+          </motion.p>
+        </motion.div>
+        <motion.div className='col-span-1 bg-dark_blue rounded-lg'
+          variants={yVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <motion.p className='flex items-center justify-center h-full text-gray-50 text-4xl font-extrabold text-center pt-3'
+            variants={textVariants}
+          >
+            Roofing
+          </motion.p>
         </motion.div>
       </motion.div>
       {/* <div className='py-20'>
         <Reviews />
       </div> */}
-      <div className='py-10'>
+      <div className='pt-20 font-extrabold text-6xl text-center'>
+        <p className='pb-3'>Expert Craftsmanship in Every Roof and Gutter Installation</p>
+      </div>
+      <div className='pt-10 pb-20'>
         <InfiniteCarousel images={imgs}/>
       </div>
-      <motion.div className='grid grid-cols-1 md:grid-cols-3 p-20 bg-dark_blue gap-5'
+      <motion.div className='grid grid-cols-1 md:grid-cols-3 p-20 bg-dark_blue gap-5 text-gray-50'
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
@@ -101,7 +141,7 @@ export default function Home() {
                 }}
         >
         </div>
-        <div className="rounded-xl h-96 bg-inherit shadow-xl order-4 md:order-3"
+        <div className="rounded-xl h-[533px] bg-inherit shadow-xl order-4 md:order-3"
           style={{ backgroundImage: `url(/imgs/home1.webp)`,
                     backgroundPosition: 'center',  // Center the image
                     backgroundSize: 'cover',       // Ensure it covers the div 
@@ -110,9 +150,10 @@ export default function Home() {
         >
         </div>
         <div className='col-span-1 md:col-span-2 order-3 md:order-4'>
-          <p className='flex flex-col items-center justify-center font-bold text-xl pt-10'>
+          <p className='flex flex-col items-center justify-center font-bold text-4xl pt-10 text-center pb-3'>
             What Sets Us Apart from the Rest
           </p>
+          <hr className='mx-auto'/>
           <Numbers />
         </div>
       </motion.div>

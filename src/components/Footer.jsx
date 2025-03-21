@@ -1,8 +1,62 @@
 import { FaFacebook, FaInstagram, FaPhone, FaEnvelope } from "react-icons/fa";
-
+import { motion } from "framer-motion";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
+        <div className='pt-20 font-extrabold text-6xl text-center bg-gray-50 text-dark_blue'>
+          <p className='pb-3'>Find Us On</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 bg-gray-50 px-20 gap-10 pt-10">     
+          <div className="flex h-full items-center justify-center">
+            <a href="https://www.google.com/maps/place//data=!4m3!3m2!1s0xa1f9c0f892594853:0x65ed0b76864a982!12e1?source=g.page.m.ia._&laa=nmx-review-solicitation-ia2" target="_blank" alt ="google">
+              <motion.img src="/imgs/footer/google.png" alt="insured" className="w-48"
+                whileHover={{ scale: [1.1, 1, 1.1],
+                  transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }
+                 }}
+                whileTap={{ scale: 0.9 }}
+              ></motion.img>
+            </a>
+          </div>
+          <div className="flex h-full items-center justify-center">
+            <a href="https://pro.porch.com/kyle-tx/general-contractors/gandj-seamless-rain-gutters/pp" target="_blank" alt ="">
+              <motion.img src="/imgs/footer/porch.png" alt="porch" className="w-48"
+                whileHover={{ scale: [1.1, 1, 1.1],
+                  transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }
+                 }}
+                whileTap={{ scale: 0.9 }}
+              ></motion.img>
+            </a>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-gray-50 gap-10 pb-10">     
+          <div className="flex h-full items-center justify-center order-1">
+            <a href="https://www.pinterest.com/ercyseamlessgutters/" target="_blank" alt ="pintres">
+              <motion.img src="/imgs/footer/pintrest.png" alt="insured" className="max-w-72 pt-12 sm:pt-2 md:pt-0"
+                whileHover={{ scale: [1.1, 1, 1.1],
+                  transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }
+                 }}
+                whileTap={{ scale: 0.9 }}
+              ></motion.img>
+            </a>
+          </div>
+          <div className="flex items-center justify-center order-3 md:order-2">
+            <img src="/imgs/footer/insured.png" alt="bbb" className="max-w-72"/>
+          </div>  
+          <div className="flex h-full items-center justify-center order-2 md:order-3">
+            <a href="https://www.facebook.com/profile.php?id=61569293428284" target="_blank" alt ="facebook">
+              <motion.img src="/imgs/footer/fb.svg" alt="insured" className="max-w-72"
+                whileHover={{ scale: [1.1, 1, 1.1],
+                  transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }
+                 }}
+                whileTap={{ scale: 0.9 }}
+              ></motion.img>
+            </a>
+          </div>
+        </div>
+        <div className="flex mx-auto w-full justify-center items-center bg-gray-50 pb-10">
+          <img src="/imgs/footer/bbb.png" alt="insured" className="max-w-72"/>
+        </div>
+
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
@@ -14,7 +68,7 @@ const Footer = () => {
             </div>
             <div className="mt-6 flex justify-center md:justify-start space-x-4">
               <a
-                href="https://www.facebook.com/"
+                href="https://www.facebook.com/profile.php?id=61569293428284"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-500"
@@ -90,8 +144,8 @@ const Footer = () => {
             <a href="/roofing">
               Roofing 101
             </a>
-            <a href="/roofing/metal_roofs">
-              Metal Roofs
+            <a href="/roofing/metal">
+              Metal
             </a>
           </div>
           </div>

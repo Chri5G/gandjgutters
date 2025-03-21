@@ -34,14 +34,18 @@ export const NavBar = () => {
                 href: "/roofing",
               },
               {
-                title: "Metal Roofs",
-                href: "/roofing/metal_roofs",
+                title: "Metal",
+                href: "/roofing/metal",
               },
             ],
           },
           {
             title: "About Us",
-            href: "/about_us",
+            href: "/about",
+          },
+          {
+            title: "Contact",
+            href: "/contact",
           },
         ]}
         navBackground="bg-gray-900"
@@ -74,7 +78,7 @@ const RoundedDrawerNav = ({
         onMouseLeave={() => setHovered(null)}
         className={`${navBackground} p-2 fixed top-0 left-0 right-0 z-50`} // Position fixed, top-0, and z-index for visibility
       >
-        <div className="flex items-start justify-between">
+        <div className="flex items-start justify-between pr-5">
           <div className="flex items-start">
             <Logo />
             <DesktopLinks
@@ -92,7 +96,7 @@ const RoundedDrawerNav = ({
               transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }  
             }}
           >
-            <a href="/contact" className="font-bold flex items-center hover:text-neutral-50">
+            <a href="/free_estimate" className="font-bold flex items-center hover:text-neutral-50">
               Free Estimate
               <FaCircleChevronRight className="ml-1" />
             </a>
@@ -128,8 +132,8 @@ const Logo = () => {
 // Pop Up Hover Links
 const DesktopLinks = ({ links, setHovered, hovered, activeSublinks }) => {
   const handleMouseEnter = (title) => {
-    // Only setHovered when it's not "About Us"
-    if (title === "About Us") {
+    // Only setHovered when there are sublinks
+    if (title === "About Us" || title === "Contact") {
       setHovered(null);
     } else {
       setHovered(title);

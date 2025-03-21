@@ -51,3 +51,31 @@ export const yVariants ={
     }
   }
 }
+
+export const yDownVariants ={
+  hidden: {
+    opacity: 0,
+    y: -30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      ease: easeInOut,
+    }
+  }
+}
+
+export const appearVariants ={
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 2,
+      ease: easeInOut,
+    }
+  }
+}

@@ -13,7 +13,7 @@ export const Numbers = () => {
       viewport={{ once: true }}
     >
 
-      <motion.div className="flex flex-col md:flex-row items-center justify-center gap-10"
+      <motion.div className="flex flex-col lg:flex-row items-center justify-center lg:gap-10"
         variants={yVariants}
       >
         <Stat

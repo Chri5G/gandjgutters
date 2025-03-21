@@ -1,10 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { FiDollarSign, FiEye, FiPlay, FiSearch } from "react-icons/fi";
 
 const Gutters = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 pt-14">
       <SwapColumnFeatures />
     </div>
   );
