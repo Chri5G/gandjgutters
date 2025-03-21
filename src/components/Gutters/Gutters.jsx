@@ -126,7 +126,7 @@ const features = [
     title: "What are Gutters?",
     description:"Gutters are systems of channels installed along the edges of your roof to collect rainwater and direct it away from your home. They prevent water from damaging your roof, siding, foundation, and landscaping by safely guiding it to a designated drainage area.",
     contentPosition: "r",
-    img: '/imgs/logo.webp',
+    img: '/imgs/gutters/1.webp',
   },
   {
     id: 2,
@@ -135,7 +135,7 @@ const features = [
     description:
     <p><strong className="text-logo_blue">Water Control:</strong> Gutters protect your home from water damage by directing rainwater away from critical areas like your foundation and roof.<br /><strong className="text-logo_blue">Foundation Protection:</strong> Gutters prevent water from pooling around your home’s foundation, which can lead to cracks, leaks, or flooding.<br /><strong className="text-logo_blue">Prevent Erosion:</strong> Without gutters, water can erode the soil around your home, affecting the landscape and even leading to uneven ground or washouts.</p>,
     contentPosition: "l",
-    img: '/imgs/logo.webp',
+    img: '/imgs/gutters/2.png',
   },
   {
     id: 3,
@@ -144,7 +144,7 @@ const features = [
     description:
     <p>Proper gutter sizing is essential to ensure that the gutters can handle the volume of water during heavy rain. The size of gutters is typically determined by the roof's square footage and the rainfall in your area.<br /><strong className="text-logo_blue">5-inch gutters:</strong> Ideal for standard homes with average rainfall.<br /><strong className="text-logo_blue">6-inch gutters:</strong> Recommended for larger homes or areas with heavy rainfall, as they can handle more water flow.</p>,
     contentPosition: "r",
-    img: '/imgs/gutter_sizes.jpg',
+    img: '/imgs/gutters/3.jpg',
   },
   {
     id: 4,
@@ -153,7 +153,7 @@ const features = [
     description:
     <p>We offer a variety of gutter options, including <strong className="text-logo_blue">Custom Half-Round Gutters</strong> for a classic, rounded look, and <strong className="text-logo_blue">Custom Box Gutters</strong> for a more modern, sleek design, all tailored to fit your home's unique style and needs.</p>,
     contentPosition: "l",
-    img: '/imgs/gutter_types.avif',
+    img: '/imgs/gutters/4.avif',
   },
   {
     id: 5,
