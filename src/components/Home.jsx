@@ -4,6 +4,7 @@ import Reviews from './Reviews'
 import { textVariants, yVariants, yDownVariants, containerVariants,appearVariants } from './Variants'
 import { Numbers } from './Numbers'
 import InfiniteCarousel from './InfiniteCarousel'
+import ImageSwitcher from './ImageSwitcher'
 
 
 const imgs=[
@@ -20,38 +21,16 @@ const imgs=[
 export default function Home() {
   return (
     <div className='bg-gray-50 pt-[72px]'>
-      <motion.div
-        variants={yDownVariants}
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ once: true }}
-      >
-        <div className='grid grid-cols-1 md:grid-cols-2'>
-          <div className='h-[33vh] md:h-[78vh] bg-inherit'
-            style={{ backgroundImage: `url(/imgs/home/1.jpeg)`,
-              backgroundPosition: 'center',  // Center the image
-              backgroundSize: 'cover',       // Ensure it covers the div 
-              backgroundRepeat: 'no-repeat',  // No repeat
-            }}
-          >
-          </div>
-          <div className='h-[33vh] md:h-[78vh] bg-inherit'
-            style={{ backgroundImage: `url(/imgs/home/2.jpeg)`,
-              backgroundPosition: 'center',  // Center the image
-              backgroundSize: 'cover',       // Ensure it covers the div 
-              backgroundRepeat: 'no-repeat'  // No repeat
-            }}
-          >
-          </div>
-        </div>
-      </motion.div>
+      <div className="w-screen">
+        <ImageSwitcher />
+      </div>
       <motion.div
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true }}
       >
-        <motion.p className='p-5 font-extrabold text-center text-4xl bg-logo_blue'
+        <motion.p className='p-5 font-extrabold text-center text-4xl md:text-6xl bg-logo_blue'
           variants={appearVariants}
         >
           Central Texas Experts in <span className='text-dark_blue'><br />Roofing</span> & <span className='text-dark_blue'>Rain Gutter</span> Installation
