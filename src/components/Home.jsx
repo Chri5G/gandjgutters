@@ -71,7 +71,7 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <a href='/gutters' target='_blank'>
+          <a href='/gutters'>
             <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center h-full'
               variants={textVariants}
             >
@@ -84,7 +84,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
           >
-            <a href='/gutters/covers' target='_blank'>
+            <a href='/gutters/covers'>
               <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center pt-3 h-full'
                 variants={textVariants}
               >
@@ -108,7 +108,7 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <a href='/roofing' target='_blank'>
+          <a href='/roofing'>
             <motion.p className='flex items-center justify-center h-full text-gray-50 text-3xl font-extrabold text-center pt-3'
               variants={textVariants}
             >
