@@ -27,7 +27,7 @@ export default function Home() {
         viewport={{ once: true }}
       >
         <div className='grid grid-cols-1 md:grid-cols-2'>
-          <div className='h-[65vh] bg-inherit'
+          <div className='h-[33vh] bg-inherit'
             style={{ backgroundImage: `url(/imgs/home/working_1.webp)`,
               backgroundPosition: 'center',  // Center the image
               backgroundSize: 'cover',       // Ensure it covers the div 
@@ -35,7 +35,7 @@ export default function Home() {
             }}
           >
           </div>
-          <div className='h-[65vh] bg-inherit'
+          <div className='h-[33vh] bg-inherit'
             style={{ backgroundImage: `url(/imgs/home/roofing.jpeg)`,
               backgroundPosition: 'center',  // Center the image
               backgroundSize: 'cover',       // Ensure it covers the div 
@@ -51,13 +51,13 @@ export default function Home() {
         whileInView='visible'
         viewport={{ once: true }}
       >
-        <motion.p className='p-5 font-extrabold text-center text-8xl bg-logo_blue'
+        <motion.p className='p-5 font-extrabold text-center text-4xl bg-logo_blue'
           variants={appearVariants}
         >
           Central Texas Experts in <span className='text-dark_blue'><br />Roofing</span> & <span className='text-dark_blue'>Rain Gutter</span> Installation
         </motion.p>
       </motion.div>
-      <div className='pt-20 font-extrabold text-6xl text-center'>
+      <div className='pt-20 font-extrabold text-3xl text-center'>
         <p className='pb-3'>Our Gutter and Roofing Services</p>
       </div>
       <motion.div className='p-10 grid grid-cols-1 lg:grid-cols-4 bg-gray-50 gap-5 h-[50vh]'
@@ -71,7 +71,7 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <motion.p className='flex items-center justify-center text-gray-50 text-4xl font-extrabold text-center h-full'
+          <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center h-full'
             variants={textVariants}
           >
             Gutter Installation
@@ -82,7 +82,7 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <motion.p className='flex items-center justify-center text-gray-50 text-4xl font-extrabold text-center pt-3 h-full'
+          <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center pt-3 h-full'
             variants={textVariants}
           >
             Gutter Cover
@@ -93,7 +93,7 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <motion.p className='flex items-center justify-center text-gray-50 text-4xl font-extrabold text-center pt-3 h-full'
+          <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center pt-3 h-full'
             variants={textVariants}
           >
             Gutter Cleaning
@@ -104,7 +104,7 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <motion.p className='flex items-center justify-center h-full text-gray-50 text-4xl font-extrabold text-center pt-3'
+          <motion.p className='flex items-center justify-center h-full text-gray-50 text-3xl font-extrabold text-center pt-3'
             variants={textVariants}
           >
             Roofing
@@ -114,7 +114,7 @@ export default function Home() {
       {/* <div className='py-20'>
         <Reviews />
       </div> */}
-      <div className='pt-20 font-extrabold text-6xl text-center'>
+      <div className='pt-20 font-extrabold text-3xl text-center'>
         <p className='pb-3'>Expert Craftsmanship in Every Roof and Gutter Installation</p>
       </div>
       <div className='pt-10 pb-20'>
@@ -129,7 +129,7 @@ export default function Home() {
         <motion.div className='col-span-1 md:col-span-2 order-1'
           variants={yVariants}
         >
-          <p className='font-extrabold text-4xl pb-3'>G&J Seamless Rain Gutters - Gutter Installtion Company in Central TX</p>
+          <p className='font-extrabold text-3xl pb-3'>G&J Seamless Rain Gutters - Gutter Installtion Company in Central TX</p>
           <hr className='w-1/2'/>
           <p className='pt-3'>Our company, G&J Seamless Rain Gutters, is dedicated to providing top-quality seamless gutter installation and repair services to our valued customers. We are a team of highly skilled professionals who take pride in our work and strive for excellence in every project we undertake. Our customers are our top priority and we always go the extra mile to ensure their complete satisfaction. With 20 years of experience in the industry, we have established ourselves as a trusted and reliable source for all your rain gutter needs. We believe in transparency, honesty, and integrity, which are the core values that drive our business. Our goal is to provide you with a seamless experience from start to finish.</p>
         </motion.div>
@@ -150,7 +150,7 @@ export default function Home() {
         >
         </div>
         <div className='col-span-1 md:col-span-2 order-3 md:order-4'>
-          <p className='flex flex-col items-center justify-center font-bold text-4xl pt-10 text-center pb-3'>
+          <p className='flex flex-col items-center justify-center font-bold text-3xl pt-10 text-center pb-3'>
             What Sets Us Apart from the Rest
           </p>
           <hr className='mx-auto'/>

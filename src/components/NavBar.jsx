@@ -76,7 +76,7 @@ const RoundedDrawerNav = ({
     <>
       <nav
         onMouseLeave={() => setHovered(null)}
-        className={`${navBackground} p-2 fixed top-0 left-0 right-0 z-50`} // Position fixed, top-0, and z-index for visibility
+        className={`${navBackground} p-2 fixed top-0 w-[100%] z-50`} // Position fixed, top-0, and z-index for visibility
       >
         <div className="flex items-start justify-between pr-5">
           <div className="flex items-start">

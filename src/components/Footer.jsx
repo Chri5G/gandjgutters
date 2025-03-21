@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
-        <div className='pt-20 font-extrabold text-6xl text-center bg-gray-50 text-dark_blue'>
+        <div className='pt-10 font-extrabold text-6xl text-center bg-gray-50 text-dark_blue'>
           <p className='pb-3'>Find Us On</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 bg-gray-50 px-20 gap-10 pt-10">     
