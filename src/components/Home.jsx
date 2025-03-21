@@ -27,7 +27,7 @@ export default function Home() {
         viewport={{ once: true }}
       >
         <div className='grid grid-cols-1 md:grid-cols-2'>
-          <div className='h-[33vh] bg-inherit'
+          <div className='h-[33vh] md:h-[78vh] bg-inherit'
             style={{ backgroundImage: `url(/imgs/home/1.jpeg)`,
               backgroundPosition: 'center',  // Center the image
               backgroundSize: 'cover',       // Ensure it covers the div 
@@ -35,7 +35,7 @@ export default function Home() {
             }}
           >
           </div>
-          <div className='h-[33vh] bg-inherit'
+          <div className='h-[33vh] md:h-[78vh] bg-inherit'
             style={{ backgroundImage: `url(/imgs/home/2.jpeg)`,
               backgroundPosition: 'center',  // Center the image
               backgroundSize: 'cover',       // Ensure it covers the div 
