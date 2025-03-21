@@ -82,8 +82,8 @@ const RoundedDrawerNav = ({
         onMouseLeave={() => setHovered(null)}
         className={`${navBackground} p-2 fixed top-0 w-[100%] z-50`} // Position fixed, top-0, and z-index for visibility
       >
-        <div className="flex items-start justify-between pr-5">
-          <div className="flex items-start">
+        <div className="flex items-start justify-between px-5">
+          <div className="flex items-start order-1 md:order-2">
             <Logo />
             <DesktopLinks
               links={links}
@@ -94,7 +94,7 @@ const RoundedDrawerNav = ({
           </div>
           
           {/* Free Estimate Button */}
-          <motion.button className="mt-4 rounded-md bg-dark_blue px-3 py-1.5 text-neutral-50 block"
+          <motion.button className="mt-4 rounded-md bg-dark_blue py-1.5 text-neutral-50 block order-last"
             whileTap={{ scale: 0.9}}
             whileHover={{ scale: [1.1, 1, 1.1], 
               transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }  
@@ -237,19 +237,6 @@ const MobileLinks = ({ links, open }) => {
             );
           })}
           <div>
-          </div>
-          <div>
-            <motion.button className="rounded-md bg-dark_blue px-3 py-1.5 text-neutral-50 transition-colors hover:bg-dark_blue"
-              whileTap={{ scale: 0.9}}
-              whileHover={{ scale: [1.1, 1, 1.1], 
-                transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }  
-              }}
-            >
-              <a href="/free_estimate" className="font-bold flex items-center hover:text-neutral-50">
-                Free Estimate
-                <FaCircleChevronRight className="ml-1" />
-              </a>
-            </motion.button>
           </div>
         </motion.div>
       )}
