@@ -1,6 +1,7 @@
 // ContactPage.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const Contact = () => {
     service: '',
     message: ''
   });
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
@@ -17,9 +19,15 @@ const Contact = () => {
       ...prevData,
       [id]: value
     }));
+  
+    // Clear the error for the changed field
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [id]: ''  // Clear error for the specific field
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let formErrors = {};
 
@@ -50,6 +58,22 @@ const Contact = () => {
     if (Object.keys(formErrors).length === 0) {
       // Submit the form data (you can send this to the backend)
       console.log('Form data submitted:', formData);
+      try {
+        // LOCAL
+        // const response = await axios.post('http://localhost:443/api/send-email', formData);
+        // PRODUCTION
+        const response = await axios.post('https://www.gandjgutters.com/api/send-email', formData);
+        // Handle successful email send
+        // console.log(response.data); 
+
+        setFormSubmitted(true);
+        // console.log('Form submitted:', formData);
+        // await new Promise(resolve => setTimeout(resolve, 500));
+        // setFormData({ name: '', email: '', message: '' }); // Clear form
+
+      } catch (error) {
+        console.error('Error sending email:', error);
+      }
 
     } else {
       setErrors(formErrors);
@@ -59,10 +83,10 @@ const Contact = () => {
   // Declare service options with numeric values (0-4)
   const serviceOptions = [
     { value: 0, label: 'Select a Service' },
-    { value: 1, label: 'Gutter Installation' },
-    { value: 2, label: 'Gutter Cover' },
-    { value: 3, label: 'Gutter Cleaning' },
-    { value: 4, label: 'Roofing' },
+    { value: 'Gutter Installation', label: 'Gutter Installation' },
+    { value: 'Gutter Cover', label: 'Gutter Cover' },
+    { value: 'Gutter Cleaning', label: 'Gutter Cleaning' },
+    { value: 'Roofing', label: 'Roofing' },
   ];
 
   return (
@@ -92,7 +116,7 @@ const Contact = () => {
               type="text"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-700"
               placeholder="Enter your name"
             />
             {errors.name && (
@@ -101,7 +125,7 @@ const Contact = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700" htmlFor="email">
+            <label className="block" htmlFor="email">
               Email
             </label>
             <input
@@ -109,7 +133,7 @@ const Contact = () => {
               type="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-700 "
               placeholder="Enter your email"
             />
             {errors.email && (
@@ -125,7 +149,7 @@ const Contact = () => {
               id="service"
               value={formData.service}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-700"
             >
               {serviceOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -147,7 +171,7 @@ const Contact = () => {
               rows="4"
               value={formData.message}
               onChange={handleInputChange}
-              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-700"
               placeholder="Enter your message"
             ></textarea>
             {errors.message && (

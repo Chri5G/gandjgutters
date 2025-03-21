@@ -11,26 +11,26 @@ const port = 443;
 // Middleware
 
 // LOCAL TESTING
-app.use(cors({
-  origin: 'http://localhost:5173', // Replace with your frontend URL
-  methods: ['POST'],
-  allowedHeaders: ['Content-Type'],
-  credentials: true
-}));
-
-// PRODUCTION
 // app.use(cors({
-//   origin: 'https:/www.lg-signs.com',
+//   origin: 'http://localhost:5173', // Replace with your frontend URL
 //   methods: ['POST'],
 //   allowedHeaders: ['Content-Type'],
 //   credentials: true
-// })); 
+// }));
+
+// PRODUCTION
+app.use(cors({
+  origin: 'https:/www.gandjgutters.com',
+  methods: ['POST'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true
+})); 
 
 app.use(bodyParser.json());
 
 // Email sending route
 app.post('/api/send-email', (req, res) => {
-    const { name, email, message } = req.body;
+    const { name, email, service, message } = req.body;
 
     const recipient = process.env.MYEMAIL;  // Hardcoded recipient YOUR EMAIL
 
@@ -48,12 +48,12 @@ app.post('/api/send-email', (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,   // business email
       to: recipient,
-      subject: `LG Signs Inquiry`,
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      subject: `G&J Seamless Gutters Customer Inquiry`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}\nService: ${service}`,
       html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f9;">
         <header style="text-align: center; margin-bottom: 20px;">
-          <h1 style="color: #4CAF50;">New Message from LG Signs Customer</h1>
+          <h1 style="color: #4CAF50;">New Message from G&J Seamless Gutters Customer</h1>
         </header>
 
         <section style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
@@ -64,13 +64,16 @@ app.post('/api/send-email', (req, res) => {
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Name:</strong> ${name}</p>
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Email:</strong> ${email}</p>
 
+          <h3 style="font-size: 18px; color: #4CAF50; margin-bottom: 10px;">Service:</h3>
+          <p style="font-size: 16px; margin-bottom: 15px;">${service}</p>
+
           <h3 style="font-size: 18px; color: #4CAF50; margin-bottom: 10px;">Message:</h3>
           <p style="font-size: 16px; margin-bottom: 15px;">${message}</p>
 
           <p style="font-size: 16px; margin-bottom: 15px;">Please review the details and get in touch with the customer as soon as possible.</p>
 
           <footer style="text-align: center; margin-top: 30px; font-size: 14px; color: #888;">
-            <p>&copy; 2025 LG Signs | All rights reserved</p>
+            <p>&copy; 2025 G&J Seamless Gutters | All rights reserved</p>
           </footer>
         </section>
       </div>
@@ -86,14 +89,14 @@ app.post('/api/send-email', (req, res) => {
 
       // Send confirmation email to the user
       const confirmationMailOptions = {
-        from: 'info@lg-signs.com', // your email
+        from: process.env.EMAIL_USER, // your email
         to: email,  // Send confirmation to the user's email
-        subject: 'LG Signs Message Received!',  // Confirmation subject
-        text: 'Thank you for your message! We have received it and will get back to you shortly.\nBest regards,\nLG Signs Team',  // Confirmation message
+        subject: 'G&J Seamless Gutters Message Received!',  // Confirmation subject
+        text: 'Thank you for your message! We have received it and will get back to you shortly.\nBest regards,\nG&J Seamless Gutters Team',  // Confirmation message
         html: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f9;">
             <header style="text-align: center; margin-bottom: 20px;">
-              <h1 style="color: #4CAF50;">LG Signs</h1>
+              <h1 style="color: #4CAF50;">G&J Seamless Gutters</h1>
               <p style="font-size: 18px; color: #888;">Thank you for reaching out!</p>
             </header>
         
@@ -105,12 +108,13 @@ app.post('/api/send-email', (req, res) => {
               <p style="font-size: 16px; margin-bottom: 15px;">Here are the details of your message:</p>
         
               <p style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Name: ${name}</p>
+              <p style="font-size: 16px; margin-bottom: 10px;">Service: ${service}</p>
               <p style="font-size: 16px; margin-bottom: 10px;">Message: ${message}</p>
         
               <p style="font-size: 16px; margin-bottom: 15px;">We appreciate your interest and look forward to connecting with you soon!</p>
         
               <footer style="text-align: center; margin-top: 30px; font-size: 14px; color: #888;">
-                <p>&copy; 2025 LG Signs | All rights reserved</p>
+                <p>&copy; 2025 G&J Seamless Gutters | All rights reserved</p>
               </footer>
             </section>
           </div>
