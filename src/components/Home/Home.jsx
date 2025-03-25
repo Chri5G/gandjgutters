@@ -19,8 +19,12 @@ const imgs=[
 ]
 
 const main_imgs = [
-  "/imgs/home/1.jpeg",
+  "/imgs/home/1.webp",
   "/imgs/home/2.jpeg",
+  "/imgs/home/3.webp",
+  "/imgs/home/4.webp",
+  "/imgs/home/5.jpeg",
+  "/imgs/home/6.webp",
 ]
 
 export default function Home() {
