@@ -125,6 +125,10 @@ const Footer = () => {
               <a href="/gutters/commercial">
                 Commercial
               </a>
+              <a href="/gutters/covers">
+                Covers
+              </a>
+
             </div>
           </div>
 

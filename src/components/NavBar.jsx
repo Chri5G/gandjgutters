@@ -82,20 +82,20 @@ const RoundedDrawerNav = ({
         onMouseLeave={() => setHovered(null)}
         className={`${navBackground} p-2 fixed top-0 w-[100%] z-50`} // Position fixed, top-0, and z-index for visibility
       >
-        <div className="flex items-start justify-between px-5">
+        <div className="flex items-center justify-between px-5">
           <div className="flex items-start order-1 md:order-2">
             <Logo />
             <DesktopLinks
               links={links}
-              setHovered={setHovered}
+              setHovered={setHovered} 
               hovered={hovered}
               activeSublinks={activeSublinks}
             />
           </div>
           
           {/* Free Estimate Button */}
-          <motion.button className="mt-4 rounded-md bg-dark_blue py-1.5 text-neutral-50 block order-last"
-            whileTap={{ scale: 0.9}}
+          <motion.button className="my-auto md:mt-4 rounded-md bg-dark_blue py-1.5 text-neutral-50 order-last"
+            whileTap={{ scale: 0.9 }}
             whileHover={{ scale: [1.1, 1, 1.1], 
               transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }  
             }}

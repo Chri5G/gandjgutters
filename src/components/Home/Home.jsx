@@ -1,9 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Reviews from './Reviews'
-import { textVariants, yVariants, yDownVariants, containerVariants,appearVariants } from './Variants'
+import { textVariants, yVariants, yDownVariants, containerVariants,appearVariants } from '../Variants'
 import { Numbers } from './Numbers'
-import InfiniteCarousel from './InfiniteCarousel'
+import InfiniteCarousel from '../InfiniteCarousel'
 import ImageSwitcher from './ImageSwitcher'
 
 
@@ -18,11 +18,16 @@ const imgs=[
   "/imgs/g_1_4.webp"
 ]
 
+const main_imgs = [
+  "/imgs/home/1.jpeg",
+  "/imgs/home/2.jpeg",
+]
+
 export default function Home() {
   return (
     <div className='bg-gray-50 pt-[72px]'>
       <div className="w-screen">
-        <ImageSwitcher />
+        <ImageSwitcher images={main_imgs}/>
       </div>
       <motion.div
         variants={containerVariants}
@@ -51,7 +56,7 @@ export default function Home() {
           whileTap={{ scale: 0.9 }}
         >
           <a href='/gutters'>
-            <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center h-full'
+            <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center p-3 h-full'
               variants={textVariants}
             >
               Gutter Installation
@@ -64,7 +69,7 @@ export default function Home() {
             whileTap={{ scale: 0.9 }}
           >
             <a href='/gutters/covers'>
-              <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center pt-3 h-full'
+              <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center p-3 h-full'
                 variants={textVariants}
               >
                 Gutter Cover
@@ -76,7 +81,7 @@ export default function Home() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
         >
-          <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center pt-3 h-full'
+          <motion.p className='flex items-center justify-center text-gray-50 text-3xl font-extrabold text-center p-3 h-full'
             variants={textVariants}
           >
             Gutter Cleaning
@@ -88,7 +93,7 @@ export default function Home() {
           whileTap={{ scale: 0.9 }}
         >
           <a href='/roofing'>
-            <motion.p className='flex items-center justify-center h-full text-gray-50 text-3xl font-extrabold text-center pt-3'
+            <motion.p className='flex items-center justify-center h-full text-gray-50 text-3xl font-extrabold text-center p-3'
               variants={textVariants}
             >
               Roofing

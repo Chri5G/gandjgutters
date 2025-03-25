@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { animate, useInView } from "framer-motion";
-import { containerVariants } from "./Variants";
-import { yVariants } from "./Variants";
+import { containerVariants } from "../Variants";
+import { yVariants } from "../Variants";
 
 export const Numbers = () => {
   return (
