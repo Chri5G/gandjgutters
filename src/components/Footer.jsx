@@ -89,8 +89,8 @@ const Footer = () => {
                 </p>
               <p className="mt-2 flex items-center justify-center md:justify-start hover:text-blue-500">
                 <FaEnvelope className="mr-2" />
-                <a href="mailto:email">
-                  Email
+                <a href="mailto:gus@gandjgutters.com">
+                  gus@gandjgutters.com
                 </a>
               </p>
             </div>
