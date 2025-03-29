@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const ImageSwitcher = ({ images, interval = 1000 }) => {
+const ImageSwitcher = ({ images, interval = 10000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
