@@ -15,6 +15,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  input:-webkit-autofill {
+    background-color: #e0f7fa !important;  /* Change background color */
+    color: #333333 !important;             /* Change text color */
+    box-shadow: 0 0 0px 1000px #e0f7fa inset !important;  /* Remove default box-shadow */
+    -webkit-text-fill-color: #333333 !important;  /* Change the text color (for webkit browsers) */
+  }
 }
 
 main {
