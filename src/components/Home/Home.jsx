@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Reviews from './Reviews'
-import { textVariants, yVariants, yDownVariants, containerVariants,appearVariants } from '../Variants'
+import { textVariants, yVariants, containerVariants,appearVariants } from '../Variants'
 import { Numbers } from './Numbers'
 import InfiniteCarousel from '../InfiniteCarousel'
 import ImageSwitcher from './ImageSwitcher'
@@ -151,6 +151,19 @@ export default function Home() {
           <Numbers />
         </div>
       </motion.div>
+      {/* Service Area */}
+      <div className='pt-20'>
+        <motion.p className='text-center font-bold text-4xl'
+          variants={yVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >Service Area</motion.p>
+        <hr className='w-1/2 mx-auto border-green-900'/>
+      </div>
+      <div className='pt-10 pb-20'>
+        <iframe className="mx-auto w-[360px] h-[360px] md:w-[960px] md:h-[720px]" src="https://www.google.com/maps/d/embed?mid=170z3AIpEPll3MwSbzQ7cJn0-F3KuITM&ehbc=2E312F&noprof=1"></iframe>
+      </div>
     </div>
   )
 }
