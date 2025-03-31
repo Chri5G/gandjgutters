@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ const Contact = () => {
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
@@ -27,9 +30,21 @@ const Contact = () => {
     }));
   };
 
+  const notify = () => {
+    toast.success("Email has been sent successfully!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let formErrors = {};
+    setSending(true);
 
     // Validate name (required)
     if (!formData.name) {
@@ -57,7 +72,7 @@ const Contact = () => {
     // Check if there are any errors
     if (Object.keys(formErrors).length === 0) {
       // Submit the form data (you can send this to the backend)
-      console.log('Form data submitted:', formData);
+      // console.log('Form data submitted:', formData);
       try {
         // LOCAL
         // const response = await axios.post('http://localhost:443/api/send-email', formData);
@@ -66,18 +81,22 @@ const Contact = () => {
         // Handle successful email send
         // console.log(response.data); 
 
-        setFormSubmitted(true);
-        // console.log('Form submitted:', formData);
-        // await new Promise(resolve => setTimeout(resolve, 500));
-        // setFormData({ name: '', email: '', message: '' }); // Clear form
-
+        if (response.status == 200) {
+          toast.success("Email sent successfully!", { position: "top-right" });
+          await new Promise(resolve => setTimeout(resolve, 500));
+          setFormData({ name: "", email: "", service: "", message: "" }); // Clear form
+        } else {
+          toast.error("Failed to send email. Please try again.", { position: "top-right" });
+        }
       } catch (error) {
-        console.error('Error sending email:', error);
+        console.log(error)
+        toast.error("An error occurred. Please try again later.", { position: "top-right" });
       }
 
     } else {
       setErrors(formErrors);
     }
+    setSending(false);
   };
 
   // Declare service options with numeric values (0-4)
@@ -185,10 +204,11 @@ const Contact = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Submit
+            {sending ? 'Sending...' : 'Submit'}
           </motion.button>
         </form>
       </motion.div>
+      <ToastContainer />
     </div>
   );
 };

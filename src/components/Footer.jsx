@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 bg-gray-50 gap-10 pb-10">     
-          <div className="flex mx-auto w-full justify-center items-center bg-gray-50 pb-10">
+          <div className="flex mx-auto w-full justify-center items-center bg-gray-50">
             <img src="/imgs/footer/bbb.png" alt="insured" className="max-w-72"/>
           </div>
           <div className="flex items-center justify-center order-3 md:order-2">
@@ -47,8 +47,8 @@ const Footer = () => {
           </div>  
         </div>
 
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="container mx-auto py-5">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="text-center md:text-left">
           <div className="w-36 h-36 mx-auto md:mx-0">
@@ -89,8 +89,8 @@ const Footer = () => {
                 </p>
               <p className="mt-2 flex items-center justify-center md:justify-start hover:text-blue-500">
                 <FaEnvelope className="mr-2" />
-                <a href="mailto:gus@gandjgutters.com">
-                  gus@gandjgutters.com
+                <a href="mailto:info@gandjgutters.com">
+                  info@gandjgutters.com
                 </a>
               </p>
             </div>
@@ -146,9 +146,9 @@ const Footer = () => {
           </div>
         </div>
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-gray-700 text-center">
+        <div className="mt-12 pt-2 border-t border-gray-700 text-center">
           <span className="text-sm text-gray-500">
-            © {new Date().getFullYear()} G&J Seamless Rain Gutters. All Rights Reserved. Powered by 
+            © 2010 G&J Seamless Rain Gutters. All Rights Reserved. Powered by 
             <a href="https://www.kingdom-code.com" target="_blank" rel="noopener noreferrer" className="ml-1">
               Kingdom Code
             </a>

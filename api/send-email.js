@@ -73,13 +73,47 @@ app.post('/api/send-email', (req, res) => {
           <p style="font-size: 16px; margin-bottom: 15px;">Please review the details and get in touch with the customer as soon as possible.</p>
 
           <footer style="text-align: center; margin-top: 30px; font-size: 14px; color: #888;">
-            <p>&copy; 2025 G&J Seamless Gutters | All rights reserved</p>
+            <p>&copy; 2010 G&J Seamless Gutters | All rights reserved</p>
           </footer>
         </section>
       </div>
       `
     };
 
+    // Send confirmation email to the user
+    const confirmationMailOptions = {
+      from: process.env.EMAIL_USER, // your email
+      to: email,  // Send confirmation to the user's email
+      subject: 'G&J Seamless Gutters Message Received!',  // Confirmation subject
+      text: 'Thank you for your message! We have received it and will get back to you shortly.\nBest regards,\nG&J Seamless Gutters Team',  // Confirmation message
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f9;">
+          <header style="text-align: center; margin-bottom: 20px;">
+            <h1 style="color: #4CAF50;">G&J Seamless Gutters</h1>
+            <p style="font-size: 18px; color: #888;">Thank you for reaching out!</p>
+          </header>
+      
+          <section style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <p style="font-size: 16px; margin-bottom: 15px;">Hi,</p>
+            
+            <p style="font-size: 16px; margin-bottom: 15px;">Thank you for your message. We have received it and will get back to you shortly. Our team is reviewing your submission and will respond as soon as possible.</p>
+      
+            <p style="font-size: 16px; margin-bottom: 15px;">Here are the details of your message:</p>
+      
+            <p style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Name: ${name}</p>
+            <p style="font-size: 16px; margin-bottom: 10px;">Service: ${service}</p>
+            <p style="font-size: 16px; margin-bottom: 10px;">Message: ${message}</p>
+      
+            <p style="font-size: 16px; margin-bottom: 15px;">We appreciate your interest and look forward to connecting with you soon!</p>
+      
+            <footer style="text-align: center; margin-top: 30px; font-size: 14px; color: #888;">
+              <p>&copy; 2010 G&J Seamless Gutters | All rights reserved</p>
+            </footer>
+          </section>
+        </div>
+      `    
+    };
+    
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error('Error sending email:', error);
@@ -87,39 +121,6 @@ app.post('/api/send-email', (req, res) => {
       }
       console.log('Email sent: ', info.response);
 
-      // Send confirmation email to the user
-      const confirmationMailOptions = {
-        from: process.env.EMAIL_USER, // your email
-        to: email,  // Send confirmation to the user's email
-        subject: 'G&J Seamless Gutters Message Received!',  // Confirmation subject
-        text: 'Thank you for your message! We have received it and will get back to you shortly.\nBest regards,\nG&J Seamless Gutters Team',  // Confirmation message
-        html: `
-          <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f9;">
-            <header style="text-align: center; margin-bottom: 20px;">
-              <h1 style="color: #4CAF50;">G&J Seamless Gutters</h1>
-              <p style="font-size: 18px; color: #888;">Thank you for reaching out!</p>
-            </header>
-        
-            <section style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-              <p style="font-size: 16px; margin-bottom: 15px;">Hi,</p>
-              
-              <p style="font-size: 16px; margin-bottom: 15px;">Thank you for your message. We have received it and will get back to you shortly. Our team is reviewing your submission and will respond as soon as possible.</p>
-        
-              <p style="font-size: 16px; margin-bottom: 15px;">Here are the details of your message:</p>
-        
-              <p style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Name: ${name}</p>
-              <p style="font-size: 16px; margin-bottom: 10px;">Service: ${service}</p>
-              <p style="font-size: 16px; margin-bottom: 10px;">Message: ${message}</p>
-        
-              <p style="font-size: 16px; margin-bottom: 15px;">We appreciate your interest and look forward to connecting with you soon!</p>
-        
-              <footer style="text-align: center; margin-top: 30px; font-size: 14px; color: #888;">
-                <p>&copy; 2025 G&J Seamless Gutters | All rights reserved</p>
-              </footer>
-            </section>
-          </div>
-        `    
-      };
       transporter.sendMail(confirmationMailOptions, (error, info) => {
         if (error) {
           console.error('Error sending confirmation email:', error);
