@@ -30,16 +30,16 @@ const Contact = () => {
     }));
   };
 
-  const notify = () => {
-    toast.success("Email has been sent successfully!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  };
+  // const notify = () => {
+  //   toast.success("Email has been sent successfully!", {
+  //     position: "top-right",
+  //     autoClose: 3000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //   });
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,9 +78,9 @@ const Contact = () => {
         // const response = await axios.post('http://localhost:443/api/send-email', formData);
         // PRODUCTION
         const response = await axios.post('https://www.gandjgutters.com/api/send-email', formData);
+        console.log(response); 
+        
         // Handle successful email send
-        // console.log(response.data); 
-
         if (response.status == 200) {
           toast.success("Email sent successfully!", { position: "top-right" });
           await new Promise(resolve => setTimeout(resolve, 500));
