@@ -45,6 +45,7 @@ app.post('/api/send-email', (req, res) => {
       }
     });
 
+    // Myself Email Options
     const mailOptions = {
       from: process.env.EMAIL_USER,   // business email
       to: recipient,
@@ -53,21 +54,21 @@ app.post('/api/send-email', (req, res) => {
       html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f9;">
         <header style="text-align: center; margin-bottom: 20px;">
-          <h1 style="color: #4CAF50;">New Message from G&J Seamless Gutters Customer</h1>
+          <h1 style="color: #2196F3;">New Message from G&J Seamless Gutters Customer</h1>
         </header>
 
         <section style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
           <p style="font-size: 16px; margin-bottom: 15px;">You have received a new message from your website contact form:</p>
 
-          <h3 style="font-size: 18px; color: #4CAF50; margin-bottom: 10px;">Customer Information:</h3>
+          <h3 style="font-size: 18px; color: #2196F3; margin-bottom: 10px;">Customer Information:</h3>
           
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Name:</strong> ${name}</p>
           <p style="font-size: 16px; margin-bottom: 10px;"><strong>Email:</strong> ${email}</p>
 
-          <h3 style="font-size: 18px; color: #4CAF50; margin-bottom: 10px;">Service:</h3>
+          <h3 style="font-size: 18px; color: #2196F3; margin-bottom: 10px;">Service:</h3>
           <p style="font-size: 16px; margin-bottom: 15px;">${service}</p>
 
-          <h3 style="font-size: 18px; color: #4CAF50; margin-bottom: 10px;">Message:</h3>
+          <h3 style="font-size: 18px; color: #2196F3; margin-bottom: 10px;">Message:</h3>
           <p style="font-size: 16px; margin-bottom: 15px;">${message}</p>
 
           <p style="font-size: 16px; margin-bottom: 15px;">Please review the details and get in touch with the customer as soon as possible.</p>
@@ -89,7 +90,7 @@ app.post('/api/send-email', (req, res) => {
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f4f4f9;">
           <header style="text-align: center; margin-bottom: 20px;">
-            <h1 style="color: #4CAF50;">G&J Seamless Gutters</h1>
+            <h1 style="color: #2196F3;">G&J Seamless Gutters</h1>
             <p style="font-size: 18px; color: #888;">Thank you for reaching out!</p>
           </header>
       
@@ -114,6 +115,7 @@ app.post('/api/send-email', (req, res) => {
       `    
     };
     
+    // Send Email to Myself
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error('Error sending email:', error);
@@ -121,6 +123,7 @@ app.post('/api/send-email', (req, res) => {
       }
       console.log('Email sent: ', info.response);
 
+      // Send Confirmation Email
       transporter.sendMail(confirmationMailOptions, (error, info) => {
         if (error) {
           console.error('Error sending confirmation email:', error);

@@ -12,7 +12,6 @@ const Contact = () => {
     service: '',
     message: ''
   });
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState({});
 
