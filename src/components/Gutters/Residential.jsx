@@ -4,14 +4,16 @@ import { textVariants, yVariants, containerVariants } from '../Variants'
 import InfiniteCarousel from '../InfiniteCarousel'
 
 const imgs=[
-  "/imgs/bh_1.webp",
-  "/imgs/bh_2.webp",
-  "/imgs/blue_1.webp",
-  "/imgs/copper_1.webp",
-  "/imgs/g_1_1.webp",
-  "/imgs/g_1_2.webp",
-  "/imgs/g_1_3.webp",
-  "/imgs/g_1_4.webp"
+  "/imgs/gutters/box/1.png",
+  "/imgs/gutters/box_collector/1.png",
+  "/imgs/gutters/half_round/1.png",
+  "/imgs/gutters/box/2.png",
+  "/imgs/gutters/box_collector/2.png",
+  "/imgs/gutters/half_round/2.png",
+  "/imgs/gutters/box/3.png",
+  "/imgs/gutters/box_collector/3.png",
+  "/imgs/gutters/half_round/3.png",
+  "/imgs/gutters/box/4.png",
 ]
 
 export default function Residential() {
@@ -38,7 +40,7 @@ export default function Residential() {
             </motion.p>
         </div>
         <motion.div className='bg-inherit rounded-lg shadow-lg order-first md:order-last'
-          style={{ backgroundImage: `url(/imgs/metal/main.jpg)`,
+          style={{ backgroundImage: `url(/imgs/home/3.webp)`,
             backgroundPosition: 'center',  // Center the image
             backgroundSize: 'cover',       // Ensure it covers the div 
             backgroundRepeat: 'no-repeat',  // No repeat

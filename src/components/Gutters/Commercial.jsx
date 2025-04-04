@@ -4,14 +4,16 @@ import { textVariants, yVariants, containerVariants } from '../Variants'
 import InfiniteCarousel from '../InfiniteCarousel'
 
 const imgs=[
-  "/imgs/bh_1.webp",
-  "/imgs/bh_2.webp",
-  "/imgs/blue_1.webp",
-  "/imgs/copper_1.webp",
-  "/imgs/g_1_1.webp",
-  "/imgs/g_1_2.webp",
-  "/imgs/g_1_3.webp",
-  "/imgs/g_1_4.webp"
+  "/imgs/gutters/commercial/1.png",
+  "/imgs/gutters/commercial/2.png",
+  "/imgs/gutters/commercial/3.png",
+  "/imgs/gutters/commercial/4.jpg",
+  "/imgs/home/1.webp",
+  "/imgs/home/2.jpeg",
+  "/imgs/home/3.webp",
+  "/imgs/home/4.webp",
+  "/imgs/home/5.jpeg",
+  "/imgs/home/6.webp",
 ]
 
 export default function Commercial() {
@@ -36,7 +38,7 @@ export default function Commercial() {
             >At G&J Seamless Gutters, we understand that a well-functioning gutter system is critical to the protection and longevity of your commercial property. Serving Austin, TX, and Central Texas, we specialize in professional commercial gutter installation, repair, and maintenance. Whether you’re managing a retail store, office building, industrial facility, or multi-family property, our team delivers high-quality, durable, and efficient gutter systems designed to meet the specific needs of your commercial property.</motion.p>
         </div>
         <motion.div className='bg-inherit rounded-lg shadow-lg order-first md:order-last'
-            style={{ backgroundImage: `url(/imgs/commercial.jpg)`,
+            style={{ backgroundImage: `url(/imgs/gutters/commercial/3.png)`,
               backgroundPosition: 'center',  // Center the image
               backgroundSize: 'cover',       // Ensure it covers the div 
               backgroundRepeat: 'no-repeat',  // No repeat

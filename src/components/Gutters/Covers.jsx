@@ -2,17 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { textVariants, yVariants, containerVariants } from '../Variants'
 
-const imgs=[
-  "/imgs/bh_1.webp",
-  "/imgs/bh_2.webp",
-  "/imgs/blue_1.webp",
-  "/imgs/copper_1.webp",
-  "/imgs/g_1_1.webp",
-  "/imgs/g_1_2.webp",
-  "/imgs/g_1_3.webp",
-  "/imgs/g_1_4.webp"
-]
-
 export default function Covers() {
   return (
     <div className='bg-gray-50 pt-32'>

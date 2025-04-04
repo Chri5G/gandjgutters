@@ -8,14 +8,16 @@ import ImageSwitcher from './ImageSwitcher'
 
 
 const imgs=[
-  "/imgs/bh_1.webp",
-  "/imgs/bh_2.webp",
-  "/imgs/blue_1.webp",
-  "/imgs/copper_1.webp",
-  "/imgs/g_1_1.webp",
-  "/imgs/g_1_2.webp",
-  "/imgs/g_1_3.webp",
-  "/imgs/g_1_4.webp"
+  "/imgs/roofing/metal/1.png",
+  "/imgs/gutters/box/1.png",
+  "/imgs/gutters/box_collector/1.png",
+  "/imgs/roofing/metal/2.png",
+  "/imgs/gutters/commercial/1.png",
+  "/imgs/gutters/copper/1.webp",
+  "/imgs/roofing/metal/3.png",
+  "/imgs/gutters/half_round/1.png",
+  "/imgs/gutters/covers/xmas.webp",
+  "/imgs/galvalume/galvalume/2.png"
 ]
 
 const main_imgs = [
@@ -128,7 +130,7 @@ export default function Home() {
           <p className='pt-3'>Our company, G&J Seamless Rain Gutters, is dedicated to providing top-quality seamless gutter installation and repair services to our valued customers. We are a team of highly skilled professionals who take pride in our work and strive for excellence in every project we undertake. Our customers are our top priority and we always go the extra mile to ensure their complete satisfaction. With 20 years of experience in the industry, we have established ourselves as a trusted and reliable source for all your rain gutter needs. We believe in transparency, honesty, and integrity, which are the core values that drive our business. Our goal is to provide you with a seamless experience from start to finish.</p>
         </motion.div>
         <div className="rounded-xl h-96 bg-inherit shadow-xl order-2"
-          style={{ backgroundImage: `url(/imgs/guards.webp)`,
+          style={{ backgroundImage: `url(/imgs/gutters/covers/guards.webp)`,
                     backgroundPosition: 'center',  // Center the image
                     backgroundSize: 'cover',       // Ensure it covers the div 
                     backgroundRepeat: 'no-repeat'  // No repeat
@@ -136,7 +138,7 @@ export default function Home() {
         >
         </div>
         <div className="rounded-xl h-[533px] bg-inherit shadow-xl order-4 md:order-3"
-          style={{ backgroundImage: `url(/imgs/home1.webp)`,
+          style={{ backgroundImage: `url(/imgs/gutters/box/4.png)`,
                     backgroundPosition: 'center',  // Center the image
                     backgroundSize: 'cover',       // Ensure it covers the div 
                     backgroundRepeat: 'no-repeat'  // No repeat

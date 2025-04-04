@@ -4,14 +4,15 @@ import { textVariants, yVariants, containerVariants } from '../Variants'
 import InfiniteCarousel from '../InfiniteCarousel'
 
 const imgs=[
-  "/imgs/bh_1.webp",
-  "/imgs/bh_2.webp",
-  "/imgs/blue_1.webp",
-  "/imgs/copper_1.webp",
-  "/imgs/g_1_1.webp",
-  "/imgs/g_1_2.webp",
-  "/imgs/g_1_3.webp",
-  "/imgs/g_1_4.webp"
+  "/imgs/roofing/metal/1.png",
+  "/imgs/roofing/metal/2.png",
+  "/imgs/roofing/metal/3.png",
+  "/imgs/home/1.webp",
+  "/imgs/home/2.jpeg",
+  "/imgs/home/3.webp",
+  "/imgs/home/4.webp",
+  "/imgs/home/5.jpeg",
+  "/imgs/home/6.webp",
 ]
 
 export default function Metal() {
@@ -25,7 +26,7 @@ export default function Metal() {
       >
         <motion.div className='col-span-1 bg-inherit rounded-lg shadow-lg'
           style={{
-            backgroundImage: `url(/imgs/roofing/metal/main.jpg)`,
+            backgroundImage: `url(/imgs/roofing/metal/3.png)`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
