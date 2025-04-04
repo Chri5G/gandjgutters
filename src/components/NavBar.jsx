@@ -44,6 +44,10 @@ export const NavBar = () => {
             ],
           },
           {
+            title: "Gallery",
+            href: "/gallery",
+          },
+          {
             title: "About Us",
             href: "/about",
           },
@@ -137,7 +141,7 @@ const Logo = () => {
 const DesktopLinks = ({ links, setHovered, hovered, activeSublinks }) => {
   const handleMouseEnter = (title) => {
     // Only setHovered when there are sublinks
-    if (title === "About Us" || title === "Contact") {
+    if (title === "About Us" || title === "Contact" || title === "Gallery") {
       setHovered(null);
     } else {
       setHovered(title);

@@ -13,7 +13,7 @@ const imgs=[
   "/imgs/gutters/box_collector/1.png",
   "/imgs/roofing/metal/2.png",
   "/imgs/gutters/commercial/1.png",
-  "/imgs/gutters/copper/1.webp",
+  "/imgs/gutters/copper/1.png",
   "/imgs/roofing/metal/3.png",
   "/imgs/gutters/half_round/1.png",
   "/imgs/gutters/covers/xmas.webp",

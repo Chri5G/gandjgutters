@@ -8,6 +8,7 @@ import Commercial from './components/Gutters/Commercial';
 import Covers from './components/Gutters/Covers';
 import Roofing from './components/Roofing/Roofing';
 import Metal from './components/Roofing/Metal';
+import Gallery from './components/Gallery';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -27,6 +28,7 @@ function App() {
         <Route path='/gutters/covers' element={<Covers />} />
         <Route path='/roofing' element={<Roofing />} />
         <Route path='/roofing/metal' element={<Metal />} />
+        <Route path='/gallery' element={<Gallery />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/free_estimate' element={<FreeEstimate />} />

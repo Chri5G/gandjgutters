@@ -103,6 +103,9 @@ const Footer = () => {
               <a href="/">
                 Home
               </a>
+              <a href="/gallerys">
+                Gallery
+              </a>
               <a href="/about">
                 About Us
               </a>
