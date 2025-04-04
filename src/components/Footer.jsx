@@ -8,7 +8,7 @@ const Footer = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-gray-50 gap-10 pb-10">     
           <div className="flex h-full items-center justify-center order-1">
-            <a href="https://www.instagram.com/gjsseamlessgutters/" target="_blank" alt ="pintres">
+            <a href="https://www.instagram.com/g_jgutters/" target="_blank" alt ="pintres">
               <motion.img src="/imgs/footer/insta.webp" alt="insured" className="max-w-72 pt-12 sm:pt-2 md:pt-0"
                 whileHover={{ scale: [1.1, 1, 1.1],
                   transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }
@@ -66,7 +66,7 @@ const Footer = () => {
                 <FaFacebook size={24} />
               </a>
               <a
-                href="https://www.instagram.com/gjsseamlessgutters/"
+                href="https://www.instagram.com/g_jgutters/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-instagram"
