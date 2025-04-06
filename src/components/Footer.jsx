@@ -40,7 +40,14 @@ const Footer = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 bg-gray-50 gap-10 pb-10">     
           <div className="flex mx-auto w-full justify-center items-center bg-gray-50">
-            <img src="/imgs/footer/bbb.png" alt="insured" className="max-w-72"/>
+            <a href="https://www.bbb.org/us/tx/kyle/profile/gutter-contractor/gj-seamless-rain-gutters-0825-1000132769" target="_blank" alt ="bbb">
+              <motion.img src="/imgs/footer/bbb.png" alt="insured" className="max-w-72"
+                whileHover={{ scale: [1.1, 1, 1.1],
+                  transition: { duration: 1, repeat: Infinity, ease: "easeInOut" }
+                 }}
+                whileTap={{ scale: 0.9 }}
+              ></motion.img>
+            </a>
           </div>
           <div className="flex items-center justify-center order-3 md:order-2">
             <img src="/imgs/footer/insured.png" alt="bbb" className="max-w-40"/>
